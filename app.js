@@ -11,9 +11,9 @@ This is just the smallest useful command-style reference based on tested behavio
 
 # Global API: `mgr`
 
-**Full name** `AcMissionMgr`  
-**Kind** global API table/object  
-**Available on state/scene** Ranch
+**Full name:** `AcMissionMgr`  
+**Kind:** global API table/object  
+**Available on state/scene:** Ranch
 
 ## `mgr:CreateMob(arg1, arg2, arg3, arg4, arg5)`
 
@@ -38,9 +38,9 @@ mgr:CreateMob("balloon", "balloon", util:GetMyPos(), MONSTER_TYPE_FRIENDLY, 3100
 
 # Global API: `util`
 
-**Full name** `RcMissionScriptUtil`  
-**Kind** global API table/object  
-**Available on state/scene** Ranch
+**Full name:** `RcMissionScriptUtil`  
+**Kind:** global API table/object  
+**Available on state/scene:** Ranch
 
 ## `util:GetMyPos()`
 
@@ -94,7 +94,7 @@ util:InsertNoticeMsg("spawned")
 
 # Global Ranch Functions
 
-**Available on state/scene** Ranch
+**Available on state/scene:** Ranch
 
 These functions are available globally and are not part of a specific API object. There are more global functions/tables available, but these are the ones currently tested and confirmed to be exposed only in the ranch state/scene.
 
