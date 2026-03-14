@@ -9,47 +9,49 @@ This is just the smallest useful command-style reference based on tested behavio
 
 ---
 
-# Global API: \`mgr\`
+# Global API: `mgr`
 
-**Full name:** \`AcMissionMgr\`  
-**Kind:** global API table/object  
-**Available on state/scene:** Ranch
+**Full name** `AcMissionMgr`  
+**Kind** global API table/object  
+**Available on state/scene** Ranch
 
-## \`mgr:CreateMob(arg1, arg2, arg3, arg4, arg5)\`
+## `mgr:CreateMob(arg1, arg2, arg3, arg4, arg5)`
 
-**Description:** Creates a mob/entity and returns a mob userdata handle.
+Creates a mob/entity and returns a mob userdata handle.
 
-**Arguments:**
-- \`arg1\` - template/body name (confirmed)
-- \`arg2\` - logic name / script category (best guess)
-- \`arg3\` - position userdata (confirmed)
-- \`arg4\` - mob type / relation flag (best guess)
-- \`arg5\` - object ID (confirmed)
+**Arguments**
+- `arg1` - template/body name (confirmed)
+- `arg2` - logic name / script category (best guess)
+- `arg3` - position userdata (confirmed)
+- `arg4` - mob type / relation flag (best guess)
+- `arg5` - object ID (confirmed)
 
-**Return value:** mob userdata handle
+**Return value**
+mob userdata handle
 
-**Example:**
+**Example**
 \`\`\`lua
 mgr:CreateMob("balloon", "balloon", util:GetMyPos(), MONSTER_TYPE_FRIENDLY, 31002)
 \`\`\`
 
 ---
 
-# Global API: \`util\`
+# Global API: `util`
 
-**Full name:** \`RcMissionScriptUtil\`  
-**Kind:** global API table/object  
-**Available on state/scene:** Ranch
+**Full name** `RcMissionScriptUtil`  
+**Kind** global API table/object  
+**Available on state/scene** Ranch
 
-## \`util:GetMyPos()\`
+## `util:GetMyPos()`
 
-**Description:** Returns the player's current world position.
+Returns the player's current world position.
 
-**Arguments:** none
+**Arguments**
+none
 
-**Return value:** position userdata with \`x\`, \`y\`, \`z\` fields
+**Return value** position userdata with `x`, `y`, `z` fields
 
-**Example:**
+**Example**
 \`\`\`lua
 local p = util:GetMyPos()
 return p.x, p.y, p.z
@@ -57,16 +59,16 @@ return p.x, p.y, p.z
 
 ---
 
-## \`util:GetRanchNodeList(arg1)\`
+## `util:GetRanchNodeList(arg1)`
 
-**Description:** Returns a list of ranch scene node positions for a named category.
+Returns a list of ranch scene node positions for a named category.
 
-**Arguments:**
-- \`arg1\` - ranch node category name (confirmed: \`"balloon"\`)
+**Arguments**
+- `arg1` - ranch node category name (confirmed: `"balloon"`)
 
-**Return value:** Lua table containing position userdata entries
+**Return value** Lua table containing position userdata entries
 
-**Example:**
+**Example**
 \`\`\`lua
 local nodes = util:GetRanchNodeList("balloon")
 return table.getn(nodes)
@@ -74,16 +76,16 @@ return table.getn(nodes)
 
 ---
 
-## \`util:InsertNoticeMsg(arg1)\`
+## `util:InsertNoticeMsg(arg1)`
 
-**Description:** Displays a raw chat message in the game UI.
+Displays a raw chat message in the game UI.
 
-**Arguments:**
-- \`arg1\` - text string (confirmed)
+**Arguments**
+- `arg1` - text string (confirmed)
 
-**Return value:** none / not important
+**Return value** none / not important
 
-**Example:**
+**Example**
 \`\`\`lua
 util:InsertNoticeMsg("spawned")
 \`\`\`
@@ -92,40 +94,40 @@ util:InsertNoticeMsg("spawned")
 
 # Global Ranch Functions
 
-**Available on state/scene:** Ranch
+**Available on state/scene** Ranch
 
 These functions are available globally and are not part of a specific API object. There are more global functions/tables available, but these are the ones currently tested and confirmed to be exposed only in the ranch state/scene.
 
-## \`CreateNPC(arg1, arg2, arg3, arg4, arg5)\`
+## `CreateNPC(arg1, arg2, arg3, arg4, arg5)`
 
-**Description:** Creates an NPC and returns a usable NPC/mob handle.
+Creates an NPC and returns a usable NPC/mob handle.
 
-**Arguments:**
-- \`arg1\` - runtime instance name (confirmed)
-- \`arg2\` - template/body name (confirmed)
-- \`arg3\` - logic/script/category name (best guess)
-- \`arg4\` - spawn locator string or position userdata (confirmed)
-- \`arg5\` - object ID (confirmed)
+**Arguments**
+- `arg1` - runtime instance name (confirmed)
+- `arg2` - template/body name (confirmed)
+- `arg3` - logic/script/category name (best guess)
+- `arg4` - spawn locator string or position userdata (confirmed)
+- `arg5` - object ID (confirmed)
 
-**Return value:** userdata handle
+**Return value** userdata handle
 
-**Example:**
+**Example**
 \`\`\`lua
 CreateNPC("stato", "stato_ranch", "stato_ranch", util:GetMyPos(), 34902)
 \`\`\`
 
 ---
 
-## \`GetMobByName(arg1)\`
+## `GetMobByName(arg1)`
 
-**Description:** Returns a mob/NPC by its runtime name.
+Returns a mob/NPC by its runtime name.
 
-**Arguments:**
-- \`arg1\` - runtime name used at spawn time (confirmed)
+**Arguments**
+- `arg1` - runtime name used at spawn time (confirmed)
 
-**Return value:** userdata handle if found
+**Return value** userdata handle if found
 
-**Example:**
+**Example**
 \`\`\`lua
 local m = GetMobByName("bigstato2")
 if m then m:Scale(8,8,8) end
@@ -133,37 +135,41 @@ if m then m:Scale(8,8,8) end
 
 ---
 
-## \`CreateAnimals()\`
+## `CreateAnimals()`
 
-**Description:** Spawns all ranch animals using built-in ranch state/config.
+Spawns all ranch animals using built-in ranch state/config.
 
-**Arguments:** none
+**Arguments**
+none
 
-**Return value:** none / not important
+**Return value** none / not important
 
-**Example:**
+**Example**
 \`\`\`lua
 CreateAnimals()
 \`\`\`
 
-**Warning:** Repeated calls duplicate the ranch animals.
+**Warning** Repeated calls duplicate the ranch animals.
 
 ---
 
-## \`CreateAnimal(...)\`
+## `CreateAnimal(...)`
 
-**Description:** Lower-level animal creation helper.
+Lower-level animal creation helper.
 
-**Arguments:** unknown
+**Arguments**
+unknown
 
-**Return value:** unknown
+**Return value**
+unknown
 
-**Warning:** Direct blind probe caused a hard process exit. Do not use without a known signature.
+**Warning** Direct blind probe caused a hard process exit. Do not use without a known signature.
 
 
-# \`userdata\`
+# `userdata`
 
-## What \`userdata\` is
+## What `userdata` is
+In this project, `userdata` is usually a Lua wrapper around a native engine object.
 In this project, \`userdata\` is usually a Lua wrapper around a native engine object.
 
 Common meanings so far:
