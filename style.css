@@ -258,15 +258,6 @@ body {
     font-style: italic;
 }
 
-#markdown-content p strong:first-child {
-    display: inline-block;
-    min-width: 120px;
-}
-
-#markdown-content p:has(strong:first-child) {
-    margin-top: 1rem;
-}
-
 #markdown-content p strong {
     color: var(--primary-color);
 }
